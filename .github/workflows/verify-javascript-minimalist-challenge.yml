@@ -1,0 +1,21 @@
+---
+name: "Verify #4 JavaScript Minimalist"
+"on":
+  push:
+    paths:
+      - '4_JavaScript_Minimalist/**'
+
+jobs:
+  verify_challenge:
+    name: "Verify #4 JavaScript Minimalist"
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📦 Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '4_JavaScript_Minimalist/.nvmrc'
+      - name: Check Spec
+        run: |
+          cd 4_JavaScript_Minimalist
+          ./run.sh
